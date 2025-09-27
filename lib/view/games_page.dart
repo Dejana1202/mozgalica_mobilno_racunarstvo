@@ -14,7 +14,12 @@ class _GamesPageState extends State<GamesPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Games", style: Theme.of(context).textTheme.headlineLarge),
+        Text(
+          "Games",
+          style: Theme.of(
+            context,
+          ).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold),
+        ),
         Expanded(
           child: ListView(
             children: [
@@ -22,21 +27,21 @@ class _GamesPageState extends State<GamesPage> {
                 title: "Tic Tac Toe",
                 description: "Play classic 2-player Tic Tac Toe",
                 onPlay: () {},
-                svgIconPath: "assets/images/tic_tac_toe.svg",
+                svgIconPath: "assets/tic_tac_toe.svg",
               ),
               // Memory
               GameListItem(
                 title: "Memory",
                 description: "Play classic 1-player Memory",
                 onPlay: () {},
-                svgIconPath: "assets/images/memory.svg",
+                svgIconPath: "assets/memory_cards.svg",
               ),
               // Math quiz
               GameListItem(
                 title: "Math Quiz",
                 description: "Play classic 1-player Math Quiz",
                 onPlay: () {},
-                svgIconPath: "assets/images/math_quiz.svg",
+                svgIconPath: "assets/math_quiz.svg",
               ),
             ],
           ),
