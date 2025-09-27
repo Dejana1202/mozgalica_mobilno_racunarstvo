@@ -35,11 +35,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
-        title: Text("Mozgalica"),
-      ),
+      appBar: AppBar(title: Text("Mozgalica")),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),

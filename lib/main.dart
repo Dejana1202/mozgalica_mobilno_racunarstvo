@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/app_theme.dart';
 import 'package:mozgalica/view/main_menu_page.dart';
 
 void main() {
@@ -12,19 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mozgalica',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.tealAccent),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
-            foregroundColor: Colors.white,
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
-        ),
-      ),
+      theme: appTheme,
       home: const MainMenuPage(),
     );
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/service/game_service.dart';
+import 'package:mozgalica/view/game_details_page.dart';
 import 'package:mozgalica/view/game_list_item.dart';
 
 class GamesPage extends StatefulWidget {
@@ -24,24 +26,40 @@ class _GamesPageState extends State<GamesPage> {
           child: ListView(
             children: [
               GameListItem(
-                title: "Tic Tac Toe",
-                description: "Play classic 2-player Tic Tac Toe",
-                onPlay: () {},
-                svgIconPath: "assets/tic_tac_toe.svg",
+                game: GameService.ttt,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          GameDetailsPage(game: GameService.ttt),
+                    ),
+                  );
+                },
               ),
-              // Memory
               GameListItem(
-                title: "Memory",
-                description: "Play classic 1-player Memory",
-                onPlay: () {},
-                svgIconPath: "assets/memory_cards.svg",
+                game: GameService.memory,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          GameDetailsPage(game: GameService.memory),
+                    ),
+                  );
+                },
               ),
-              // Math quiz
               GameListItem(
-                title: "Math Quiz",
-                description: "Play classic 1-player Math Quiz",
-                onPlay: () {},
-                svgIconPath: "assets/math_quiz.svg",
+                game: GameService.mathQuiz,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          GameDetailsPage(game: GameService.mathQuiz),
+                    ),
+                  );
+                },
               ),
             ],
           ),
