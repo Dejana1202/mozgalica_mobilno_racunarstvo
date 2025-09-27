@@ -41,7 +41,10 @@ class _MainMenuPageState extends State<MainMenuPage> {
         title: Text("Mozgalica"),
       ),
       body: Center(
-        child: getCurrentPage()
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+          child: getCurrentPage(),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
