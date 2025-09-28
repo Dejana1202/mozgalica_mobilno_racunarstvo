@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 
 class LeaderboardsPage extends StatefulWidget {
   const LeaderboardsPage({super.key});
@@ -14,7 +15,10 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(),
-        Text("Leaderboards", style: Theme.of(context).textTheme.headlineLarge),
+        Text(
+          AppLocalizations.of(context)!.leaderboards,
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
         //
       ],
     );

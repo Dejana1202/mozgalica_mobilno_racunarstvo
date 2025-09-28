@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 import 'package:mozgalica/service/game_service.dart';
 import 'package:mozgalica/view/game_details_page.dart';
 import 'package:mozgalica/view/game_list_item.dart';
@@ -16,7 +17,10 @@ class _GamesPageState extends State<GamesPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Games", style: Theme.of(context).textTheme.headlineLarge),
+        Text(
+          AppLocalizations.of(context)!.games,
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
         Expanded(
           child: ListView(
             children: [

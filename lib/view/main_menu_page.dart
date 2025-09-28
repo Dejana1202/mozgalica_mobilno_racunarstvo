@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 import 'package:mozgalica/view/games_page.dart';
 import 'package:mozgalica/view/leaderboards_page.dart';
 import 'package:mozgalica/view/settings_page.dart';
@@ -35,7 +36,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Mozgalica")),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.mozgalica)),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -43,15 +44,18 @@ class _MainMenuPageState extends State<MainMenuPage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.games), label: 'Games'),
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.games),
+            label: AppLocalizations.of(context)!.games,
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.format_list_bulleted),
-            label: 'Leaderboards',
+            label: AppLocalizations.of(context)!.leaderboards,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Settings',
+            label: AppLocalizations.of(context)!.settings,
           ),
         ],
         currentIndex: selectedIndex,

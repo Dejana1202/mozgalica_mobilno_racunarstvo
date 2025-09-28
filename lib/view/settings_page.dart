@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
+import 'package:mozgalica/service/localization_service.dart';
 import 'package:mozgalica/service/shared_prefrences_service.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -9,13 +11,13 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  String selectedLanguage = "English";
+  String selectedLanguage = "en";
 
   @override
   void initState() {
     super.initState();
 
-    // Read selected language from shared preferences
+    // Read selected language from shared preferences to check if user has set the language before.
     selectedLanguage = SharedPreferencesService.getSelectedLanguage();
   }
 
@@ -26,7 +28,7 @@ class _SettingsPageState extends State<SettingsPage> {
       children: [
         Row(),
         Text(
-          "Settings",
+          AppLocalizations.of(context)!.settings,
           style: Theme.of(context).textTheme.headlineLarge,
           textAlign: TextAlign.left,
         ),
@@ -35,8 +37,14 @@ class _SettingsPageState extends State<SettingsPage> {
         SizedBox(height: 16),
         DropdownButton<String>(
           items: [
-            DropdownMenuItem(value: "English", child: Text("English")),
-            DropdownMenuItem(value: "Serbian", child: Text("Serbian")),
+            DropdownMenuItem(
+              value: "en",
+              child: Text(AppLocalizations.of(context)!.english),
+            ),
+            DropdownMenuItem(
+              value: "sr",
+              child: Text(AppLocalizations.of(context)!.serbian),
+            ),
           ],
           onChanged: (value) {
             changeSelectedLanguage(value);
@@ -55,5 +63,8 @@ class _SettingsPageState extends State<SettingsPage> {
     });
     // Save selected language to shared preferences
     SharedPreferencesService.setSelectedLanguage(selectedLanguage);
+
+    // Update appLocale variable to reload the whole app
+    appLocale.value = Locale(selectedLanguage);
   }
 }

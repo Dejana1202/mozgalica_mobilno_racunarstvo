@@ -10,7 +10,7 @@ class SharedPreferencesService {
   }
 
   static String getSelectedLanguage() =>
-      prefs.getString(_selectedLanguageKey) ?? 'English';
+      prefs.getString(_selectedLanguageKey) ?? 'en';
 
   static Future<void> setSelectedLanguage(String language) =>
       prefs.setString(_selectedLanguageKey, language);
