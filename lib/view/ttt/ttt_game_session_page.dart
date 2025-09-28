@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/model/game_result.dart';
+import 'package:mozgalica/service/game_service.dart';
 
 class TTTGameSessionPage extends StatefulWidget {
   final String playerX;
@@ -58,6 +60,16 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
       if (board[a].isNotEmpty && board[a] == board[b] && board[a] == board[c]) {
         gameOver = true;
         winner = board[a];
+
+        GameService.saveResult(
+          GameResult(
+            userName: winnerName(),
+            score: 1,
+            gameId: GameService.ttt.id,
+            timestamp: DateTime.now(),
+          ),
+        );
+
         showEndDialog();
         return;
       }
@@ -214,9 +226,7 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
                     icon: const Icon(Icons.home),
                     label: const Text('Home'),
                     onPressed: () {
-                      Navigator.of(
-                        context,
-                      ).popUntil((route) => route.isFirst);  
+                      Navigator.of(context).popUntil((route) => route.isFirst);
                     },
                   ),
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mozgalica/app_theme.dart';
+import 'package:mozgalica/service/game_service.dart';
 import 'package:mozgalica/service/localization_service.dart';
 import 'package:mozgalica/service/shared_prefrences_service.dart';
 import 'package:mozgalica/view/main_menu_page.dart';
@@ -8,6 +9,7 @@ import 'l10n/app_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesService.init();
+  await GameService.init();
 
   final selectedLanguage = SharedPreferencesService.getSelectedLanguage();
 

@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:mozgalica/model/game_result.dart';
 import 'package:mozgalica/model/question_model.dart';
+import 'package:mozgalica/service/game_service.dart';
 
 class MathQuizGameSessionPage extends StatefulWidget {
   final int totalQuestions;
@@ -183,6 +185,15 @@ class MathQuizGameSessionPageState extends State<MathQuizGameSessionPage> {
     currentIndex += 1;
 
     if (currentIndex >= questionList.length) {
+      GameService.saveResult(
+        GameResult(
+          userName: widget.playerName,
+          score: score,
+          gameId: GameService.mathQuiz.id,
+          timestamp: DateTime.now(),
+        ),
+      );
+
       showEndDialog();
     } else {
       startTimer();

@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:mozgalica/model/game_result.dart';
+import 'package:mozgalica/service/game_service.dart';
 
 class MemoryGameSessionPage extends StatefulWidget {
   const MemoryGameSessionPage({super.key, required this.playerName});
@@ -113,6 +115,16 @@ class MemoryGameSessionPageState extends State<MemoryGameSessionPage> {
           // small delay so flip animation completes
           await Future.delayed(const Duration(milliseconds: 400));
           if (!mounted) return;
+
+          GameService.saveResult(
+            GameResult(
+              userName: widget.playerName,
+              score: moves * (-1),
+              gameId: GameService.memory.id,
+              timestamp: DateTime.now(),
+            ),
+          );
+
           showWinDialog();
         }
       } else {
