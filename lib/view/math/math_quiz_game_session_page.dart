@@ -218,7 +218,8 @@ class MathQuizGameSessionPageState extends State<MathQuizGameSessionPage> {
             child: const Text('Restart'),
           ),
           TextButton(
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () =>
+                Navigator.of(context).popUntil((route) => route.isFirst),
             child: const Text('Close'),
           ),
         ],

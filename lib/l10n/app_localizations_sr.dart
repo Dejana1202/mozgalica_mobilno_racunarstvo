@@ -15,7 +15,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get games => 'Igre';
 
   @override
-  String get leaderboards => 'Tabela';
+  String get leaderboards => 'Rezultati';
 
   @override
   String get settings => 'Podešavanja';

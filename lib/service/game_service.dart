@@ -75,6 +75,7 @@ class GameService {
 
     final List<Map<String, dynamic>> gameResultListDb = await db.query(
       'gameResults',
+      orderBy: 'timestamp DESC',
     );
     return List.generate(
       gameResultListDb.length,
