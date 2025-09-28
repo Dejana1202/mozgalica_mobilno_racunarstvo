@@ -176,7 +176,7 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
                         filterResults();
                       },
                       icon: const Icon(Icons.clear_all),
-                      label: const Text('Clear filters'),
+                      label: Text(AppLocalizations.of(context)!.clearFilters),
                     ),
                   ],
                 ),

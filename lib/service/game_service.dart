@@ -22,28 +22,28 @@ class GameService {
 
   static const ttt = GameModel(
     id: "ttt",
-    title: "Tic Tac Toe",
-    description: "Play classic 2-player Tic Tac Toe",
-    gameRules: "tttGameRules",
-    rankingRules: "tttRankingRules",
+    title: "tttTitle",
+    description: "",
+    gameRules: "",
+    rankingRules: "",
     svgIconPath: "assets/tic_tac_toe.svg",
   );
 
   static const memory = GameModel(
     id: "memory",
     title: "Memory",
-    description: "Play classic 1-player Memory",
-    gameRules: "memoryGameRules",
-    rankingRules: "memoryRankingRules",
+    description: "",
+    gameRules: "",
+    rankingRules: "",
     svgIconPath: "assets/memory_cards.svg",
   );
 
   static const mathQuiz = GameModel(
     id: "math",
     title: "Math Quiz",
-    description: "Play classic 1-player Math Quiz",
-    gameRules: "mathGameRules",
-    rankingRules: "mathRankingRules",
+    description: "",
+    gameRules: "",
+    rankingRules: "",
     svgIconPath: "assets/math_quiz.svg",
   );
 

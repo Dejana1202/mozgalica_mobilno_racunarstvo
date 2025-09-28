@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 
 class SinglePlayerEntryPage extends StatefulWidget {
   const SinglePlayerEntryPage({super.key, required this.onSubmitName});
@@ -32,7 +33,7 @@ class SinglePlayerEntryPageState extends State<SinglePlayerEntryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Enter Your Name')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.enterYourName)),
       body: SafeArea(
         minimum: const EdgeInsets.all(16),
         child: Column(
@@ -40,7 +41,7 @@ class SinglePlayerEntryPageState extends State<SinglePlayerEntryPage> {
           children: [
             const SizedBox(height: 12),
             Text(
-              'Player name',
+              AppLocalizations.of(context)!.playerName,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 8),
@@ -50,7 +51,7 @@ class SinglePlayerEntryPageState extends State<SinglePlayerEntryPage> {
               onSubmitted: (_) => submitName(),
               maxLength: 24,
               decoration: InputDecoration(
-                hintText: 'Enter your name',
+                hintText: AppLocalizations.of(context)!.enterYourName,
                 prefixIcon: const Icon(Icons.person),
                 suffixIcon: nameController.text.isNotEmpty
                     ? IconButton(
@@ -64,7 +65,7 @@ class SinglePlayerEntryPageState extends State<SinglePlayerEntryPage> {
               ),
             ),
             Text(
-              'This name will be shown in the game. Keep it short for best layout.',
+              AppLocalizations.of(context)!.nameHint,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const Spacer(),

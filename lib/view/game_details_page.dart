@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 import 'package:mozgalica/model/game_model.dart';
 import 'package:mozgalica/service/game_service.dart';
+import 'package:mozgalica/service/localization_service.dart';
 import 'package:mozgalica/view/math/math_quiz_game_session_page.dart';
 import 'package:mozgalica/view/memory/memory_game_session_page.dart';
 import 'package:mozgalica/view/memory/single_player_entry_page.dart';
@@ -15,7 +17,9 @@ class GameDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(game.title)),
+      appBar: AppBar(
+        title: Text(GameLocalizationService.getLocalizedTitle(context, game)),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -28,21 +32,24 @@ class GameDetailsPage extends StatelessWidget {
           ),
           SizedBox(height: 16),
           Text(
-            "Game Rules",
+            AppLocalizations.of(context)!.gameRules,
             style: Theme.of(
               context,
             ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
-          Text(game.gameRules, style: Theme.of(context).textTheme.labelLarge),
+          Text(
+            GameLocalizationService.getLocalizedGameRules(context, game),
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
           SizedBox(height: 16),
           Text(
-            "Ranking Rules",
+            AppLocalizations.of(context)!.rankingRules,
             style: Theme.of(
               context,
             ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
           Text(
-            game.rankingRules,
+            GameLocalizationService.getLocalizedRankingRules(context, game),
             style: Theme.of(context).textTheme.labelLarge,
           ),
           Padding(

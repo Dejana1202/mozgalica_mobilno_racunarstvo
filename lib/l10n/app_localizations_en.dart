@@ -25,4 +25,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get serbian => 'Serbian';
+
+  @override
+  String get clearFilters => 'Clear filters';
+
+  @override
+  String get tttTitle => 'Tic Tac Toe';
+
+  @override
+  String get memoryTitle => 'Memory Game';
+
+  @override
+  String get mathQuizTitle => 'Math Quiz';
+
+  @override
+  String get tttDescription =>
+      'A classic game of Tic Tac Toe. Play against a friend.';
+
+  @override
+  String get tttGameRules =>
+      'The game is played on a 3x3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.';
+
+  @override
+  String get tttRankingRules => 'Each win aword a point.';
+
+  @override
+  String get memoryDescription =>
+      'A game of memory. Try to remember the cards.';
+
+  @override
+  String get memoryGameRules =>
+      'You can flip 2 cards at once. If they match, they will remain flipped. If they don\'t match, they will be turned back over. Try to match all the cards to win the game.';
+
+  @override
+  String get memoryRankingRules =>
+      'You will get negative points for every card that is turned over.';
+
+  @override
+  String get mathQuizDescription =>
+      'A game of math. Try to answer the questions.';
+
+  @override
+  String get mathGameRules =>
+      'You will be given a question. Answer it as quickly as possible.';
+
+  @override
+  String get mathRankingRules =>
+      'You will get a point for every correct answer.';
+
+  @override
+  String get enterYourName => 'Enter your name';
+
+  @override
+  String get playerName => 'Player name';
+
+  @override
+  String get nameHint =>
+      'This name will be shown in the game. Keep it short for best layout.';
+
+  @override
+  String get gameRules => 'Game Rules';
+
+  @override
+  String get rankingRules => 'Ranking Rules';
 }

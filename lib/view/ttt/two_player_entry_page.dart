@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
+import 'package:mozgalica/service/game_service.dart';
+import 'package:mozgalica/service/localization_service.dart';
 import 'package:mozgalica/view/ttt/ttt_game_session_page.dart';
 
 class TwoPlayerEntryPage extends StatefulWidget {
@@ -38,7 +41,7 @@ class _TwoPlayerEntryPageState extends State<TwoPlayerEntryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Tic Tac Toe — Enter your name')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.enterYourName)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(

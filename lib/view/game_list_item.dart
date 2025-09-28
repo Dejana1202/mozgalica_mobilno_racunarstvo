@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mozgalica/model/game_model.dart';
+import 'package:mozgalica/service/localization_service.dart';
 
 class GameListItem extends StatelessWidget {
   const GameListItem({super.key, required this.game, required this.onTap});
@@ -38,7 +39,7 @@ class GameListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    game.title,
+                    GameLocalizationService.getLocalizedTitle(context, game),
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -46,7 +47,10 @@ class GameListItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
                     child: Text(
-                      game.description,
+                      GameLocalizationService.getLocalizedDescription(
+                        context,
+                        game,
+                      ),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
