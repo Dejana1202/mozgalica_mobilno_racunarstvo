@@ -11,8 +11,10 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Leaderboards"),
+        Row(),
+        Text("Leaderboards", style: Theme.of(context).textTheme.headlineLarge),
         //
       ],
     );

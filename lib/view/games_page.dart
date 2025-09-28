@@ -16,12 +16,7 @@ class _GamesPageState extends State<GamesPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Games",
-          style: Theme.of(
-            context,
-          ).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold),
-        ),
+        Text("Games", style: Theme.of(context).textTheme.headlineLarge),
         Expanded(
           child: ListView(
             children: [

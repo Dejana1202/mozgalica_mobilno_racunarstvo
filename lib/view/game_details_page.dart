@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mozgalica/model/game_model.dart';
 import 'package:mozgalica/service/game_service.dart';
-import 'package:mozgalica/view/game_session_page.dart';
 import 'package:mozgalica/view/ttt/ttt_player_entry_page.dart';
 
 class GameDetailsPage extends StatelessWidget {

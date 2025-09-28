@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mozgalica/app_theme.dart';
-import 'package:mozgalica/view/main_menu_page.dart';
+import 'package:mozgalica/service/shared_prefrences_service.dart';
+import 'package:mozgalica/view/main_menu_page.dart'; 
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferencesService.init();
+  
   runApp(const MyApp());
 }
 

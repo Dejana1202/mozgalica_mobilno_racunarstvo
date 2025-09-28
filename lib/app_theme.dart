@@ -18,4 +18,10 @@ final appTheme = ThemeData(
     ),
     iconTheme: IconThemeData(color: Colors.white),
   ),
+  textTheme: TextTheme(
+    headlineLarge: const TextStyle(fontWeight: FontWeight.bold),
+    headlineMedium: const TextStyle(fontWeight: FontWeight.bold),
+    titleLarge: const TextStyle(fontWeight: FontWeight.bold),
+    titleMedium: const TextStyle(fontWeight: FontWeight.bold),
+  ),
 );
