@@ -111,7 +111,7 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
                         ),
                         items: [
                           DropdownMenuItem(
-                            value: "ttt",
+                            value: GameService.ttt.id,
                             child: Text(GameService.ttt.title),
                           ),
                           DropdownMenuItem(
