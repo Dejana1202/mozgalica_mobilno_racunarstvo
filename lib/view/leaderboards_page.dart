@@ -16,12 +16,11 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
   List<GameResult> allGameResults = [];
   List<GameResult> filteredGameResults = [];
   final TextEditingController userSearchController = TextEditingController();
-  final TextEditingController gameIdController = TextEditingController();
+  String gameIdFilter = "";
 
   @override
   void dispose() {
     userSearchController.dispose();
-    gameIdController.dispose();
     super.dispose();
   }
 
@@ -34,7 +33,7 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
 
   void fetchGameResults() async {
     userSearchController.clear();
-    gameIdController.clear();
+    gameIdFilter = "";
     filterResults();
 
     setState(() => loading = true);
@@ -48,12 +47,12 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
   }
 
   void clearGameIdFilter() {
-    gameIdController.clear();
+    gameIdFilter = "";
   }
 
   void filterResults() {
     final userQuery = userSearchController.text.trim().toLowerCase();
-    final gameQuery = gameIdController.text.trim().toLowerCase();
+    final gameQuery = gameIdFilter.trim().toLowerCase();
 
     if (userQuery.isEmpty && gameQuery.isEmpty) {
       setState(
@@ -101,18 +100,35 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
                   children: [
                     // Game ID filter
                     Expanded(
-                      child: TextField(
-                        controller: gameIdController,
-                        textInputAction: TextInputAction.search,
+                      child: DropdownButtonFormField<String>(
+                        hint: const Text('Filter by game id'),
+                        borderRadius: BorderRadius.circular(8),
+                        initialValue: gameIdFilter,
                         decoration: InputDecoration(
-                          hintText: 'Filter by game id',
-                          labelText: 'Game id',
-                          prefixIcon: const Icon(Icons.videogame_asset),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onSubmitted: (_) => filterResults(),
+                        items: [
+                          DropdownMenuItem(
+                            value: "ttt",
+                            child: Text(GameService.ttt.title),
+                          ),
+                          DropdownMenuItem(
+                            value: GameService.memory.id,
+                            child: Text(GameService.memory.title),
+                          ),
+                          DropdownMenuItem(
+                            value: GameService.mathQuiz.id,
+                            child: Text(GameService.mathQuiz.title),
+                          ),
+                          DropdownMenuItem(value: "", child: Text("All")),
+                        ],
+                        onChanged: (value) {
+                          gameIdFilter = value ?? "";
+                          filterResults();
+                        },
+                        icon: const Icon(Icons.videogame_asset),
                       ),
                     ),
                     const SizedBox(width: 12),
@@ -140,12 +156,10 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
                 // optional quick-filter row: show currently applied filters and a clear-all button
                 Row(
                   children: [
-                    if (gameIdController.text.trim().isNotEmpty)
+                    if (gameIdFilter.trim().isNotEmpty)
                       Padding(
                         padding: const EdgeInsets.only(right: 8.0),
-                        child: Chip(
-                          label: Text('Game: ${gameIdController.text}'),
-                        ),
+                        child: Chip(label: Text('Game: $gameIdFilter')),
                       ),
                     if (userSearchController.text.trim().isNotEmpty)
                       Padding(
@@ -158,7 +172,7 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
                     TextButton.icon(
                       onPressed: () {
                         userSearchController.clear();
-                        gameIdController.clear();
+                        gameIdFilter = "";
                         filterResults();
                       },
                       icon: const Icon(Icons.clear_all),
