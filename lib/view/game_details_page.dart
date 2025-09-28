@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mozgalica/model/game_model.dart';
 import 'package:mozgalica/service/game_service.dart';
-import 'package:mozgalica/view/ttt/ttt_player_entry_page.dart';
+import 'package:mozgalica/view/math/math_quiz_game_session_page.dart';
+import 'package:mozgalica/view/memory/memory_game_session_page.dart';
+import 'package:mozgalica/view/memory/single_player_entry_page.dart';
+import 'package:mozgalica/view/ttt/two_player_entry_page.dart';
 
 class GameDetailsPage extends StatelessWidget {
   const GameDetailsPage({super.key, required this.game});
@@ -30,7 +33,7 @@ class GameDetailsPage extends StatelessWidget {
               context,
             ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
-          Text(game.gameRules, style: Theme.of(context).textTheme.titleLarge),
+          Text(game.gameRules, style: Theme.of(context).textTheme.labelLarge),
           SizedBox(height: 16),
           Text(
             "Ranking Rules",
@@ -40,7 +43,7 @@ class GameDetailsPage extends StatelessWidget {
           ),
           Text(
             game.rankingRules,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.labelLarge,
           ),
           Padding(
             padding: const EdgeInsets.only(top: 16, bottom: 16),
@@ -60,12 +63,39 @@ class GameDetailsPage extends StatelessWidget {
     if (game.id == GameService.ttt.id) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const TTTPlayerEntryPage()),
+        MaterialPageRoute(builder: (context) => const TwoPlayerEntryPage()),
       );
     } else if (game.id == GameService.memory.id) {
-      // Implement this
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SinglePlayerEntryPage(
+            onSubmitName: (playerName) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (_) => MemoryGameSessionPage(playerName: playerName),
+                ),
+              );
+            },
+          ),
+        ),
+      );
     } else if (game.id == GameService.mathQuiz.id) {
-      // Implement this
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SinglePlayerEntryPage(
+            onSubmitName: (playerName) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      MathQuizGameSessionPage(playerName: playerName),
+                ),
+              );
+            },
+          ),
+        ),
+      );
     } else {
       // Error - show toast
       ScaffoldMessenger.of(

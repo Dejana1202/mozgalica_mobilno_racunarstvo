@@ -61,6 +61,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
         currentIndex: selectedIndex,
         selectedItemColor: Colors.blue,
         onTap: onItemTapped,
+        backgroundColor: Colors.grey.shade300,
       ),
     );
   }

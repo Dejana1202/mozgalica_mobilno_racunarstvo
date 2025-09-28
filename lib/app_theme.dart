@@ -23,5 +23,8 @@ final appTheme = ThemeData(
     headlineMedium: const TextStyle(fontWeight: FontWeight.bold),
     titleLarge: const TextStyle(fontWeight: FontWeight.bold),
     titleMedium: const TextStyle(fontWeight: FontWeight.bold),
+    labelLarge: const TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
+    labelMedium: const TextStyle(fontWeight: FontWeight.normal, fontSize: 17),
+    labelSmall: const TextStyle(fontWeight: FontWeight.normal, fontSize: 14),
   ),
 );

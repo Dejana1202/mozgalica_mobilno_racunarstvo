@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mozgalica/view/ttt/ttt_game_session_page.dart';
 
-class TTTPlayerEntryPage extends StatefulWidget {
-  const TTTPlayerEntryPage({super.key});
+class TwoPlayerEntryPage extends StatefulWidget {
+  const TwoPlayerEntryPage({super.key});
 
   @override
-  State<TTTPlayerEntryPage> createState() => _TTTPlayerEntryPageState();
+  State<TwoPlayerEntryPage> createState() => _TwoPlayerEntryPageState();
 }
 
-class _TTTPlayerEntryPageState extends State<TTTPlayerEntryPage> {
+class _TwoPlayerEntryPageState extends State<TwoPlayerEntryPage> {
   final p1Controller = TextEditingController();
   final p2Controller = TextEditingController();
   final formKey = GlobalKey<FormState>();
