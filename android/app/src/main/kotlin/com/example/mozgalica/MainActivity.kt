@@ -1,4 +1,4 @@
-package com.example.mozgalica
+package com.dejana.mozgalica
 
 import io.flutter.embedding.android.FlutterActivity
 
