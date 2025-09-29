@@ -241,6 +241,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ranking Rules'**
   String get rankingRules;
+
+  /// No description provided for @allGames.
+  ///
+  /// In en, this message translates to:
+  /// **'All games'**
+  String get allGames;
+
+  /// No description provided for @searchByUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Search by user'**
+  String get searchByUser;
+
+  /// No description provided for @gameWithTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Game: {game}'**
+  String gameWithTitle(Object game);
 }
 
 class _AppLocalizationsDelegate

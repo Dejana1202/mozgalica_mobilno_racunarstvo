@@ -23,5 +23,8 @@
   "playerName": "Ime igrača",
   "nameHint": "Ovo ime će se prikazati u igri. Ostavite kratko za najbolji izgled.",
   "gameRules": "Pravila igre",
-  "rankingRules": "Pravila rangiranja"
+  "rankingRules": "Pravila rangiranja",
+  "allGames": "Sve igre",
+  "searchByUser": "Pretraži po korisniku",
+  "gameWithTitle": "Igra: {game}"
 }

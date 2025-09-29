@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 import 'package:mozgalica/model/game_result.dart';
 import 'package:mozgalica/service/game_service.dart';
+import 'package:mozgalica/service/localization_service.dart';
 
 class GameResultListItem extends StatelessWidget {
   const GameResultListItem({super.key, required this.gameResult});
@@ -10,6 +12,23 @@ class GameResultListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // pokušamo da nađemo GameModel za ovaj result
+    String displayGameTitle;
+    try {
+      final game = GameService.getAvailableGames().firstWhere(
+        (element) => element.id == gameResult.gameId,
+      );
+
+      // lokalizovani naziv igre (npr. "Iks Oks" ili "Tic Tac Toe")
+      final localizedName =
+          GameLocalizationService.getLocalizedTitle(context, game);
+    // parametrizovani string iz ARB: "Game: {game}" ili "Igra: {game}"
+      displayGameTitle = AppLocalizations.of(context)!.gameWithTitle(localizedName);
+    } catch (e) {
+      // fallback ako igre nema u listi (prikaži ID igre unutar iste param poruke)
+      displayGameTitle = AppLocalizations.of(context)!.gameWithTitle(gameResult.gameId);
+    }
+
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -46,7 +65,8 @@ class GameResultListItem extends StatelessWidget {
               children: [
                 Flexible(
                   child: Text(
-                    getGameTitle(),
+                    displayGameTitle,
+                    //getGameTitle(),
                     style: Theme.of(context).textTheme.labelMedium,
                     overflow: TextOverflow.ellipsis,
                   ),

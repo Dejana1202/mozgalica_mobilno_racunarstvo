@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mozgalica/l10n/app_localizations.dart';
 import 'package:mozgalica/model/game_result.dart';
 import 'package:mozgalica/service/game_service.dart';
+import 'package:mozgalica/service/localization_service.dart';
 import 'package:mozgalica/view/game_result_list_item.dart';
 
 class LeaderboardsPage extends StatefulWidget {
@@ -112,17 +113,17 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
                         items: [
                           DropdownMenuItem(
                             value: GameService.ttt.id,
-                            child: Text(GameService.ttt.title),
+                            child: Text(GameLocalizationService.getLocalizedTitle(context, GameService.ttt))
                           ),
                           DropdownMenuItem(
                             value: GameService.memory.id,
-                            child: Text(GameService.memory.title),
+                            child: Text(GameLocalizationService.getLocalizedTitle(context, GameService.memory)),
                           ),
                           DropdownMenuItem(
                             value: GameService.mathQuiz.id,
-                            child: Text(GameService.mathQuiz.title),
+                            child: Text(GameLocalizationService.getLocalizedTitle(context, GameService.mathQuiz)),
                           ),
-                          DropdownMenuItem(value: "", child: Text("All")),
+                          DropdownMenuItem(value: "", child: Text(AppLocalizations.of(context)!.allGames)),
                         ],
                         onChanged: (value) {
                           gameIdFilter = value ?? "";
@@ -138,8 +139,8 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
                         controller: userSearchController,
                         textInputAction: TextInputAction.search,
                         decoration: InputDecoration(
-                          hintText: 'Search by user',
-                          labelText: 'User',
+                          hintText: AppLocalizations.of(context)!.searchByUser,
+                          labelText: AppLocalizations.of(context)!.searchByUser,
                           prefixIcon: const Icon(Icons.person_search),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -159,8 +160,20 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
                     if (gameIdFilter.trim().isNotEmpty)
                       Padding(
                         padding: const EdgeInsets.only(right: 8.0),
-                        child: Chip(label: Text('Game: $gameIdFilter')),
+                        //child: Chip(label: Text('Game: $gameIdFilter')),
+                        child: Builder(
+                          builder: (context) {
+                          final game = GameService.getAvailableGames()
+                                .firstWhere((g) => g.id == gameIdFilter);
+
+                          final labelText = AppLocalizations.of(context)!
+                                .gameWithTitle( // "Game: {game}" iz ARB fajla
+                                  GameLocalizationService.getLocalizedTitle(context, game),
+                                );
+                          return Chip(label: Text(labelText));
+                        },
                       ),
+                     ),
                     if (userSearchController.text.trim().isNotEmpty)
                       Padding(
                         padding: const EdgeInsets.only(right: 8.0),

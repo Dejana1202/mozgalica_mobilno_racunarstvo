@@ -23,5 +23,8 @@
   "playerName": "Player name",
   "nameHint": "This name will be shown in the game. Keep it short for best layout.",
   "gameRules": "Game Rules",
-  "rankingRules": "Ranking Rules"
+  "rankingRules": "Ranking Rules",
+  "allGames": "All games",
+  "searchByUser": "Search by user",
+  "gameWithTitle": "Game: {game}"
 }

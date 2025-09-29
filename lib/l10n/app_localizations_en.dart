@@ -88,4 +88,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get rankingRules => 'Ranking Rules';
+
+  @override
+  String get allGames => 'All games';
+
+  @override
+  String get searchByUser => 'Search by user';
+
+  @override
+  String gameWithTitle(Object game) {
+    return 'Game: $game';
+  }
 }
