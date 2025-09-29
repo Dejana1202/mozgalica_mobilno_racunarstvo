@@ -37,5 +37,17 @@
   "hasWon": "je pobijedio!",
   "victory": "Pobjeda!",
   "playAgain": "Igrajte ponovo",
-  "exit": "Izlaz"
+  "exit": "Izlaz",
+  "newGame": "Nova igra",
+  "home": "Početna",
+  "cancel": "Otkaži",
+  "restartGame": "Ponovno pokreni igru",
+  "score": "Rezultat",
+  "time": "Vrijeme",
+  "questions": "Pitanja",
+  "close": "Zatvori",
+  "quizCompleted": "Kviz je završen",
+  "moves": "Broj poteza",
+  "skip": "Preskoči",
+  "congratulations": "Čestitamo!"
 }

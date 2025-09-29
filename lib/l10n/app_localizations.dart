@@ -325,6 +325,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exit'**
   String get exit;
+
+  /// No description provided for @newGame.
+  ///
+  /// In en, this message translates to:
+  /// **'New Game'**
+  String get newGame;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @restartGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Restart game'**
+  String get restartGame;
+
+  /// No description provided for @score.
+  ///
+  /// In en, this message translates to:
+  /// **'Score'**
+  String get score;
+
+  /// No description provided for @time.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get time;
+
+  /// No description provided for @questions.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions'**
+  String get questions;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @quizCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiz Complete'**
+  String get quizCompleted;
+
+  /// No description provided for @moves.
+  ///
+  /// In en, this message translates to:
+  /// **'Moves'**
+  String get moves;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @congratulations.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations!'**
+  String get congratulations;
 }
 
 class _AppLocalizationsDelegate

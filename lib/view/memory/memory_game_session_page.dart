@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 import 'package:mozgalica/model/game_result.dart';
 import 'package:mozgalica/service/game_service.dart';
+import 'package:mozgalica/service/localization_service.dart';
 
 class MemoryGameSessionPage extends StatefulWidget {
   const MemoryGameSessionPage({super.key, required this.playerName});
@@ -142,9 +144,9 @@ class MemoryGameSessionPageState extends State<MemoryGameSessionPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Congratulations!'),
+        title: Text(AppLocalizations.of(context)!.congratulations),
         content: Text(
-          'You completed the game in $elapsedTime (moves: $moves).',
+          '${AppLocalizations.of(context)!.time} : $elapsedTime , ${AppLocalizations.of(context)!.moves} : $moves',
         ),
         actions: [
           TextButton(
@@ -152,12 +154,12 @@ class MemoryGameSessionPageState extends State<MemoryGameSessionPage> {
               Navigator.of(context).pop();
               startNewGame();
             },
-            child: const Text('Restart'),
+            child:  Text(AppLocalizations.of(context)!.restartGame),
           ),
           TextButton(
             onPressed: () =>
                 Navigator.of(context).popUntil((route) => route.isFirst),
-            child: const Text('Close'),
+            child: Text(AppLocalizations.of(context)!.close),
           ),
         ],
       ),
@@ -191,7 +193,7 @@ class MemoryGameSessionPageState extends State<MemoryGameSessionPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Memory Quiz'),
+        title: Text(GameLocalizationService.getLocalizedTitle(context, GameService.memory)),
         centerTitle: true,
         actions: [
           IconButton(
@@ -208,17 +210,17 @@ class MemoryGameSessionPageState extends State<MemoryGameSessionPage> {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             child: Row(
               children: [
-                Text('Moves: $moves', style: const TextStyle(fontSize: 16)),
+                Text('${AppLocalizations.of(context)!.moves}: $moves', style: const TextStyle(fontSize: 16)),
                 const SizedBox(width: 16),
                 Text(
-                  'Time: $elapsedTime',
+                  '${AppLocalizations.of(context)!.time}: $elapsedTime',
                   style: const TextStyle(fontSize: 16),
                 ),
                 const Spacer(),
                 ElevatedButton.icon(
                   onPressed: startNewGame,
                   icon: const Icon(Icons.refresh),
-                  label: const Text('New Game'),
+                  label: Text(AppLocalizations.of(context)!.newGame),
                 ),
               ],
             ),
@@ -234,15 +236,6 @@ class MemoryGameSessionPageState extends State<MemoryGameSessionPage> {
               ),
               itemCount: cards.length,
               itemBuilder: (context, index) => buildCard(index),
-            ),
-          ),
-
-          // footer / hint
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            child: Text(
-              'Pairs: $pairsCount • Tap a card to flip it.',
-              style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
           ),
         ],

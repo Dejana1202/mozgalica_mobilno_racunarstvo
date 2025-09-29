@@ -225,7 +225,7 @@ String? checkGameState() {
                 Expanded(
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.restart_alt),
-                    label: const Text('New Game'),
+                    label: Text(AppLocalizations.of(context)!.newGame),
                     onPressed: () => resetBoard(),
                   ),
                 ),
@@ -233,7 +233,7 @@ String? checkGameState() {
                 Expanded(
                   child: OutlinedButton.icon(
                     icon: const Icon(Icons.home),
-                    label: const Text('Home'),
+                    label: Text(AppLocalizations.of(context)!.home),
                     onPressed: () {
                       Navigator.of(context).popUntil((route) => route.isFirst);
                     },

@@ -129,4 +129,40 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get exit => 'Izlaz';
+
+  @override
+  String get newGame => 'Nova igra';
+
+  @override
+  String get home => 'Početna';
+
+  @override
+  String get cancel => 'Otkaži';
+
+  @override
+  String get restartGame => 'Ponovno pokreni igru';
+
+  @override
+  String get score => 'Rezultat';
+
+  @override
+  String get time => 'Vrijeme';
+
+  @override
+  String get questions => 'Pitanja';
+
+  @override
+  String get close => 'Zatvori';
+
+  @override
+  String get quizCompleted => 'Kviz je završen';
+
+  @override
+  String get moves => 'Broj poteza';
+
+  @override
+  String get skip => 'Preskoči';
+
+  @override
+  String get congratulations => 'Čestitamo!';
 }

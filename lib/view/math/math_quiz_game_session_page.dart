@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 import 'package:mozgalica/model/game_result.dart';
 import 'package:mozgalica/model/question_model.dart';
 import 'package:mozgalica/service/game_service.dart';
+import 'package:mozgalica/service/localization_service.dart';
 
 class MathQuizGameSessionPage extends StatefulWidget {
   final int totalQuestions;
@@ -207,20 +209,20 @@ class MathQuizGameSessionPageState extends State<MathQuizGameSessionPage> {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: const Text('Quiz Complete'),
-        content: Text('Score: $score\nQuestions: ${questionList.length}'),
+        title: Text(AppLocalizations.of(context)!.quizCompleted),
+        content: Text('${AppLocalizations.of(context)!.score}: $score\n${AppLocalizations.of(context)!.questions}: ${questionList.length}'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
               startNewQuiz();
             },
-            child: const Text('Restart'),
+            child: Text(AppLocalizations.of(context)!.restartGame),
           ),
           TextButton(
             onPressed: () =>
                 Navigator.of(context).popUntil((route) => route.isFirst),
-            child: const Text('Close'),
+            child: Text(AppLocalizations.of(context)!.close),
           ),
         ],
       ),
@@ -268,7 +270,7 @@ class MathQuizGameSessionPageState extends State<MathQuizGameSessionPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Math Quiz'),
+        title: Text(GameLocalizationService.getLocalizedTitle(context, GameService.memory)),
         centerTitle: true,
         actions: [
           IconButton(
@@ -288,7 +290,7 @@ class MathQuizGameSessionPageState extends State<MathQuizGameSessionPage> {
             // Top info row
             Row(
               children: [
-                Chip(label: Text('Score: $score')),
+                Chip(label: Text('${AppLocalizations.of(context)!.score}: $score')),
                 const Spacer(),
                 Text('Q ${currentIndex + 1}/${questionList.length}'),
               ],
@@ -306,7 +308,7 @@ class MathQuizGameSessionPageState extends State<MathQuizGameSessionPage> {
               children: [
                 const Icon(Icons.timer),
                 const SizedBox(width: 6),
-                Text('Time: $remainingSeconds s'),
+                Text('${AppLocalizations.of(context)!.time}: $remainingSeconds s'),
                 const Spacer(),
                 IconButton(
                   tooltip: 'Skip',
@@ -340,7 +342,7 @@ class MathQuizGameSessionPageState extends State<MathQuizGameSessionPage> {
                     const SizedBox(height: 8),
                     if (answered)
                       Text(
-                        'Correct answer: ${question.correctAnswer}',
+                        '${question.correctAnswer}',
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.grey,

@@ -37,5 +37,17 @@
   "hasWon": "has won!",
   "victory": "Victory!",
   "playAgain": "Play Again",
-  "exit": "Exit"
+  "exit": "Exit",
+  "newGame": "New Game",
+  "home": "Home",
+  "cancel": "Cancel",
+  "restartGame": "Restart game",
+  "score": "Score",
+  "time": "Time",
+  "questions": "Questions",
+  "close": "Close",
+  "quizCompleted": "Quiz Complete",
+  "moves": "Moves",
+  "skip": "Skip",
+  "congratulations": "Congratulations!"
 }

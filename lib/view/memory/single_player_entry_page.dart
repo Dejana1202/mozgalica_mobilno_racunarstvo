@@ -73,12 +73,12 @@ class SinglePlayerEntryPageState extends State<SinglePlayerEntryPage> {
             const SizedBox(height: 20),
 
             // Start button
-            ElevatedButton(onPressed: submitName, child: const Text('Start')),
+            ElevatedButton(onPressed: submitName, child: Text(AppLocalizations.of(context)!.startGame)),
 
             const SizedBox(height: 12),
             TextButton(
               onPressed: () => Navigator.of(context).pop(), // Cancel/back
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context)!.restartGame),
             ),
           ],
         ),

@@ -132,4 +132,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exit => 'Exit';
+
+  @override
+  String get newGame => 'New Game';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get restartGame => 'Restart game';
+
+  @override
+  String get score => 'Score';
+
+  @override
+  String get time => 'Time';
+
+  @override
+  String get questions => 'Questions';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get quizCompleted => 'Quiz Complete';
+
+  @override
+  String get moves => 'Moves';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get congratulations => 'Congratulations!';
 }
