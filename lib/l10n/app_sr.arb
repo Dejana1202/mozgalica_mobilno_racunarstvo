@@ -26,5 +26,16 @@
   "rankingRules": "Pravila rangiranja",
   "allGames": "Sve igre",
   "searchByUser": "Pretraži po korisniku",
-  "gameWithTitle": "Igra: {game}"
+  "gameWithTitle": "Igra: {game}",
+  "language": "Jezik",
+  "playerX": "Igrač X",
+  "playerO": "Igrač O",
+  "clear": "Obriši",
+  "startGame": "Počni igru",
+  "currentPlayer": "Trenutni igrač: ",
+  "unresolved": "Neriješeno",
+  "hasWon": "je pobijedio!",
+  "victory": "Pobjeda!",
+  "playAgain": "Igrajte ponovo",
+  "exit": "Izlaz"
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mozgalica/l10n/app_localizations.dart';
 import 'package:mozgalica/model/game_result.dart';
 import 'package:mozgalica/service/game_service.dart';
 
@@ -44,16 +45,23 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
 
   void handleTap(int index) {
     if (board[index].isNotEmpty || gameOver) return;
+    final currentSymbol = isXTurn ? 'X' : 'O';
+    board[index] = currentSymbol;
+    final winnerPlayerName = checkGameState();
+    if (winnerPlayerName != null) {
+      // 3️⃣ Ako je kraj igre, pokaži dijalog
+      showEndDialog(winnerPlayerName);
+    } else {
+      // 4️⃣ Ako igra nije gotova, promeni turn
+      setState(() {
+        isXTurn = !isXTurn;
+      });
+    }
 
-    setState(() {
-      board[index] = isXTurn ? 'X' : 'O';
-      isXTurn = !isXTurn;
-    });
 
-    checkGameState();
   }
 
-  void checkGameState() {
+String? checkGameState() {
     // Check winner
     for (var combo in winningCombos) {
       final a = combo[0], b = combo[1], c = combo[2];
@@ -61,17 +69,18 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
         gameOver = true;
         winner = board[a];
 
-        GameService.saveResult(
-          GameResult(
-            userName: winnerName(),
-            score: 1,
-            gameId: GameService.ttt.id,
-            timestamp: DateTime.now(),
-          ),
-        );
+         final winnerPlayerName = winner == 'X' ? widget.playerX : widget.playerO;
 
-        showEndDialog();
-        return;
+        GameService.saveResult(
+    GameResult(
+      userName: winnerPlayerName,
+      score: 1,
+      gameId: GameService.ttt.id,
+      timestamp: DateTime.now(),
+    ),
+  );
+        return winnerPlayerName;
+
       }
     }
 
@@ -79,21 +88,21 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
     if (!board.contains('')) {
       gameOver = true;
       winner = 'draw';
-      showEndDialog();
+          return AppLocalizations.of(context)!.unresolved;
     }
+    return null; // igra nije gotova
   }
 
-  String winnerName() {
-    if (winner == 'X') return widget.playerX;
-    if (winner == 'O') return widget.playerO;
-    return 'Nobody (unresolved)';
-  }
 
-  void showEndDialog() {
-    final title = winner == 'draw' ? 'Draw!' : 'Victory!';
-    final content = winner == 'draw'
-        ? 'It\'s a draw.'
-        : '${winnerName()} has won${winner == 'X' || winner == 'O' ? '!' : '.'}';
+  void showEndDialog(String winnerPlayerName) {
+    final title = winner == 'draw'
+      ? AppLocalizations.of(context)!.unresolved
+      : AppLocalizations.of(context)!.victory;
+
+      final content = winner == 'draw'
+      ? AppLocalizations.of(context)!.unresolved
+      : '$winnerPlayerName ${AppLocalizations.of(context)!.hasWon}';
+
 
     Future.microtask(() {
       showDialog(
@@ -109,7 +118,7 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
                 Navigator.of(context).pop();
                 resetBoard();
               },
-              child: const Text('Play Again'),
+              child: Text(AppLocalizations.of(context)!.playAgain),
             ),
             TextButton(
               onPressed: () {
@@ -117,7 +126,7 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
                   context,
                 ).popUntil((route) => route.isFirst); // Select game();
               },
-              child: const Text('EXIT'),
+              child: Text(AppLocalizations.of(context)!.exit),
             ),
           ],
         ),
@@ -163,7 +172,7 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tic Tac Toe'),
+        title: Text(AppLocalizations.of(context)!.tttTitle),
         actions: [
           IconButton(
             tooltip: 'RESET',
@@ -190,7 +199,7 @@ class _TTTGameSessionPageState extends State<TTTGameSessionPage> {
                   style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
                 subtitle: Text(
-                  'Current Player: $currentPlayerName ($currentSymbol)',
+                  '${AppLocalizations.of(context)!.currentPlayer} $currentPlayerName ($currentSymbol)',
                 ),
               ),
             ),

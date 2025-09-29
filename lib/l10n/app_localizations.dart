@@ -259,6 +259,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Game: {game}'**
   String gameWithTitle(Object game);
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @playerX.
+  ///
+  /// In en, this message translates to:
+  /// **'Player X'**
+  String get playerX;
+
+  /// No description provided for @playerO.
+  ///
+  /// In en, this message translates to:
+  /// **'Player O'**
+  String get playerO;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
+  /// No description provided for @startGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Start game'**
+  String get startGame;
+
+  /// No description provided for @currentPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Current player: '**
+  String get currentPlayer;
+
+  /// No description provided for @unresolved.
+  ///
+  /// In en, this message translates to:
+  /// **'Unresolved'**
+  String get unresolved;
+
+  /// No description provided for @hasWon.
+  ///
+  /// In en, this message translates to:
+  /// **'has won!'**
+  String get hasWon;
+
+  /// No description provided for @victory.
+  ///
+  /// In en, this message translates to:
+  /// **'Victory!'**
+  String get victory;
+
+  /// No description provided for @playAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Play Again'**
+  String get playAgain;
+
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
 }
 
 class _AppLocalizationsDelegate

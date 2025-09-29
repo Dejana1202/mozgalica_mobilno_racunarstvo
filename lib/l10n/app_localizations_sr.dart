@@ -96,4 +96,37 @@ class AppLocalizationsSr extends AppLocalizations {
   String gameWithTitle(Object game) {
     return 'Igra: $game';
   }
+
+  @override
+  String get language => 'Jezik';
+
+  @override
+  String get playerX => 'Igrač X';
+
+  @override
+  String get playerO => 'Igrač O';
+
+  @override
+  String get clear => 'Obriši';
+
+  @override
+  String get startGame => 'Počni igru';
+
+  @override
+  String get currentPlayer => 'Trenutni igrač: ';
+
+  @override
+  String get unresolved => 'Neriješeno';
+
+  @override
+  String get hasWon => 'je pobijedio!';
+
+  @override
+  String get victory => 'Pobjeda!';
+
+  @override
+  String get playAgain => 'Igrajte ponovo';
+
+  @override
+  String get exit => 'Izlaz';
 }

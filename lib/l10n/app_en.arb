@@ -26,5 +26,16 @@
   "rankingRules": "Ranking Rules",
   "allGames": "All games",
   "searchByUser": "Search by user",
-  "gameWithTitle": "Game: {game}"
+  "gameWithTitle": "Game: {game}",
+  "language": "Language",
+  "playerX": "Player X",
+  "playerO": "Player O",
+  "clear": "Clear",
+  "startGame": "Start game",
+  "currentPlayer": "Current player: ",
+  "unresolved": "Unresolved",
+  "hasWon": "has won!",
+  "victory": "Victory!",
+  "playAgain": "Play Again",
+  "exit": "Exit"
 }

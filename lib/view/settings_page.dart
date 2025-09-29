@@ -33,7 +33,7 @@ class _SettingsPageState extends State<SettingsPage> {
           textAlign: TextAlign.left,
         ),
         SizedBox(height: 16),
-        Text("Language", style: Theme.of(context).textTheme.headlineMedium),
+        Text(AppLocalizations.of(context)!.language, style: Theme.of(context).textTheme.headlineMedium),
         SizedBox(height: 16),
         DropdownButton<String>(
           items: [

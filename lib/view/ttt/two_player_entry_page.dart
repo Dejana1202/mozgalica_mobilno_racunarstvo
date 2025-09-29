@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mozgalica/l10n/app_localizations.dart';
-import 'package:mozgalica/service/game_service.dart';
-import 'package:mozgalica/service/localization_service.dart';
 import 'package:mozgalica/view/ttt/ttt_game_session_page.dart';
 
 class TwoPlayerEntryPage extends StatefulWidget {
@@ -25,10 +23,10 @@ class _TwoPlayerEntryPageState extends State<TwoPlayerEntryPage> {
 
   void _startGame() {
     final name1 = p1Controller.text.trim().isEmpty
-        ? 'Player 1'
+        ? AppLocalizations.of(context)!.playerX
         : p1Controller.text.trim();
     final name2 = p2Controller.text.trim().isEmpty
-        ? 'Player 2'
+        ? AppLocalizations.of(context)!.playerO
         : p2Controller.text.trim();
 
     Navigator.of(context).push(
@@ -51,8 +49,8 @@ class _TwoPlayerEntryPageState extends State<TwoPlayerEntryPage> {
               const SizedBox(height: 8),
               TextFormField(
                 controller: p1Controller,
-                decoration: const InputDecoration(
-                  labelText: 'Player X',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.playerX,
                   border: OutlineInputBorder(),
                 ),
                 textInputAction: TextInputAction.next,
@@ -61,8 +59,8 @@ class _TwoPlayerEntryPageState extends State<TwoPlayerEntryPage> {
               const SizedBox(height: 12),
               TextFormField(
                 controller: p2Controller,
-                decoration: const InputDecoration(
-                  labelText: 'Player O',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.playerO,
                   border: OutlineInputBorder(),
                 ),
                 textInputAction: TextInputAction.done,
@@ -71,7 +69,7 @@ class _TwoPlayerEntryPageState extends State<TwoPlayerEntryPage> {
               const SizedBox(height: 20),
               ElevatedButton.icon(
                 icon: const Icon(Icons.play_arrow),
-                label: const Text('START GAME'),
+                label: Text(AppLocalizations.of(context)!.startGame),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(48),
                 ),
@@ -83,7 +81,7 @@ class _TwoPlayerEntryPageState extends State<TwoPlayerEntryPage> {
                   p1Controller.clear();
                   p2Controller.clear();
                 },
-                child: const Text('CLEAR'),
+                child: Text(AppLocalizations.of(context)!.clear),
               ),
               const SizedBox(height: 16),
             ],

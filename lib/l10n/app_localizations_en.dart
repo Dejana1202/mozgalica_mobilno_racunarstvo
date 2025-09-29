@@ -99,4 +99,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String gameWithTitle(Object game) {
     return 'Game: $game';
   }
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get playerX => 'Player X';
+
+  @override
+  String get playerO => 'Player O';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
+  String get startGame => 'Start game';
+
+  @override
+  String get currentPlayer => 'Current player: ';
+
+  @override
+  String get unresolved => 'Unresolved';
+
+  @override
+  String get hasWon => 'has won!';
+
+  @override
+  String get victory => 'Victory!';
+
+  @override
+  String get playAgain => 'Play Again';
+
+  @override
+  String get exit => 'Exit';
 }
