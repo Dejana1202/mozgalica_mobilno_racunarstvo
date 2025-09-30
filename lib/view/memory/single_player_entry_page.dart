@@ -78,7 +78,7 @@ class SinglePlayerEntryPageState extends State<SinglePlayerEntryPage> {
             const SizedBox(height: 12),
             TextButton(
               onPressed: () => Navigator.of(context).pop(), // Cancel/back
-              child: Text(AppLocalizations.of(context)!.restartGame),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
           ],
         ),
