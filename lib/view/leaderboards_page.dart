@@ -38,6 +38,7 @@ class _LeaderboardsPageState extends State<LeaderboardsPage> {
     filterResults();
 
     setState(() => loading = true);
+    // await Future.delayed(const Duration(seconds: 5));
     allGameResults = await GameService.getResults();
     filteredGameResults = allGameResults;
     setState(() => loading = false);

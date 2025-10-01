@@ -8,6 +8,7 @@ class GameListItem extends StatelessWidget {
 
   final GameModel game;
   final Function onTap;
+// icon, name, description and reaction on tap
 
   @override
   Widget build(BuildContext context) {

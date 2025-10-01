@@ -10,9 +10,11 @@ class GameResultListItem extends StatelessWidget {
 
   final GameResult gameResult;
 
+  //Ovaj widget uzme podatke o jednom rezultatu igre i prikaže ih lijepo u jednoj Card kartici.
+
   @override
   Widget build(BuildContext context) {
-    // pokušamo da nađemo GameModel za ovaj result
+    // pokušamo da nađemo GameModel za ovaj GameResult
     String displayGameTitle;
     try {
       final game = GameService.getAvailableGames().firstWhere(
@@ -28,7 +30,7 @@ class GameResultListItem extends StatelessWidget {
       // fallback ako igre nema u listi (prikaži ID igre unutar iste param poruke)
       displayGameTitle = AppLocalizations.of(context)!.gameWithTitle(gameResult.gameId);
     }
-
+    // Card widget za prikaz imena korisnika i rezultata za filtriranu igru 
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
