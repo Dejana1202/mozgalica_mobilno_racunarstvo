@@ -1,16 +1,19 @@
-# mozgalica
+# Mozgalica – Android aplikacija
 
-A new Flutter project.
+**Mozgalica** je Android aplikacija, koja predstavlja zbirku logičkih igara. Trenutno aplikacija sadrži tri različite igre: 
+**Memory Match**, **Tic-Tac-Toe** i **MathQuiz**. 
+Svaka igra ima jasno definisana pravila, interfejs i sistem bodovanja, a rezultati se čuvaju u lokalnoj **SQLite** bazi podataka.
 
-## Getting Started
+## Funkcionalnosti
 
-This project is a starting point for a Flutter application.
+- Korisnici učestvuju u igrama koristeći jedinstveno korisničko ime.
+- Pregled istorije rezultata sa mogućnošću filtriranja po:
+  - korisničkom imenu
+  - nazivu igre
+- Detaljan prikaz pravila, bodovanja i dodatnih informacija za svaku igru.
+- Podešavanja jezika aplikacije (**srpski** ili **engleski**).
 
-A few resources to get you started if this is your first Flutter project:
+## Tehničke karakteristike
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Sve operacije, koje mogu blokirati glavnu nit realizovane su asinhrono radi boljih performansi.
+- GUI je dizajniran prema **Material Design** principima, minimalistički i responzivan za različite dimenzije i gustine ekrana.
