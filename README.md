@@ -1,6 +1,6 @@
 # Mozgalica – flutter aplikacija
 
-**Mozgalica** je Android aplikacija, koja predstavlja zbirku logičkih igara. Trenutno aplikacija sadrži tri različite igre: 
+**Mozgalica** je Android aplikacija (može i ios), koja predstavlja zbirku logičkih igara. Trenutno aplikacija sadrži tri različite igre: 
 **Memory Match**, **Tic-Tac-Toe** i **MathQuiz**. 
 Svaka igra ima jasno definisana pravila, interfejs i sistem bodovanja, a rezultati se čuvaju u lokalnoj **SQLite** bazi podataka.
 
